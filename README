@@ -1,0 +1,9 @@
+TODO:
+
+	add a remove_die method 
+	also decicd how you want to
+	store the die you remove. 
+	either make a "HeldDice"
+	object or add an instance
+	variable to Dice to store
+	them.
