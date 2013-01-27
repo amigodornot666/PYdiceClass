@@ -29,7 +29,7 @@ class Dice(object):
 	    self.currentRoll = []
 	    self.rolled = False
 	    Dice._handList.append(self.currentRoll)
-	    
+	    self.currentRolled = 0
 	    
         def __str__(self):
             if not(self.rolled):
@@ -41,11 +41,20 @@ class Dice(object):
                 return roll
                 
         def roll(self, num=6):
+            if (self.rolled):
+                self.reset_roll()
             self.rolled = True
             for i in range(self.numberToRoll):
                 self.currentRoll.append(Die())
             for i in self.currentRoll:
                 i.roll()
+            self.currentRolled = num
+
+        def reset_roll(self):
+            self.rolled = False
+            self.currentRolled = 0
+            self.currentRoll = list()[:]
+
         
         def _make_face(self):
             if not(self.rolled):
